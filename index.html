@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FocusFlow - Premium automatic Pomodoro timer. Start once, it automatically cycles between focus and break sessions.">
+    <meta name="author" content="Your Name">
+    <title>FocusFlow | Premium Auto Pomodoro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍅</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="glass-nav">
+            <span class="logo">Focus<span class="gradient-text">Flow</span></span>
+            <div class="session-tracker">
+                <span class="tracker-label">Cycle</span>
+                <span class="tracker-value" id="cycleCount">0</span>
+                <span class="tracker-divider">/</span>
+                <span class="tracker-value" id="totalCycles">4</span>
+            </div>
+        </nav>
+
+        <!-- Main Timer Card -->
+        <main class="timer-card">
+            <div class="timer-circle">
+                <svg class="progress-ring" width="340" height="340" viewBox="0 0 340 340">
+                    <circle class="progress-ring__bg" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none" r="155" cx="170" cy="170"/>
+                    <circle id="progressRing" class="progress-ring__progress" stroke="url(#gradient)" stroke-width="8" stroke-linecap="round" fill="none" r="155" cx="170" cy="170"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#a8c0ff"/>
+                            <stop offset="100%" stop-color="#6b4fe0"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="timer-content">
+                    <span id="phaseLabel" class="phase-label">FOCUS</span>
+                    <h1 id="timerDisplay">25:00</h1>
+                    <span id="statusBadge" class="status-badge">● Auto Mode</span>
+                </div>
+            </div>
+
+            <div class="main-controls">
+                <button id="resetBtn" class="icon-btn" title="Reset Timer">↺</button>
+                <button id="startBtn" class="play-btn primary">▶ Start</button>
+                <button id="pauseBtn" class="play-btn secondary" style="display:none;">⏸ Pause</button>
+                <button id="skipBtn" class="icon-btn" title="Skip to Next Phase">⇥</button>
+            </div>
+        </main>
+
+        <!-- WHAT IS POMODORO? - INFO SECTION -->
+        <section class="info-glass">
+            <div class="section-header">
+                <span class="section-title">🍅 What is the Pomodoro Technique?</span>
+                <button id="toggleInfo" class="toggle-btn" aria-label="Toggle info">▼</button>
+            </div>
+            <div id="infoContent" class="section-content">
+                <div class="info-text">
+                    <p>The <strong>Pomodoro Technique</strong> is a time management method developed by Francesco Cirillo in the late 1980s. It uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a "pomodoro", from the Italian word for 'tomato' 🍅</p>
+                </div>
+                
+                <div class="benefits-grid">
+                    <h4>✨ Key Benefits</h4>
+                    <div class="benefits-list">
+                        <div class="benefit-card">
+                            <span class="benefit-icon">🎯</span>
+                            <div>
+                                <strong>Reduces Burnout</strong>
+                                <p>Regular breaks prevent mental fatigue</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card">
+                            <span class="benefit-icon">⚡</span>
+                            <div>
+                                <strong>Increases Focus</strong>
+                                <p>Short sprints improve concentration</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card">
+                            <span class="benefit-icon">📊</span>
+                            <div>
+                                <strong>Tracks Progress</strong>
+                                <p>See how many pomodoros you complete</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card">
+                            <span class="benefit-icon">🧠</span>
+                            <div>
+                                <strong>Reduces Interruptions</strong>
+                                <p>Train your brain to focus in blocks</p>
+                            </div>
+                        </div>
+                    mom
+                        <div class="benefit-card">
+                            <span class="benefit-icon">⏰</span>
+                            <div>
+                                <strong>Better Time Estimation</strong>
+                                <p>Learn how long tasks actually take</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card">
+                            <span class="benefit-icon">😌</span>
+                            <div>
+                                <strong>Lower Stress</strong>
+                                <p>Work with rhythm, not against time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="how-it-works">
+                    <h4>🔄 How It Works</h4>
+                    <div class="steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <span>Choose a task to work on</span>
+                        </div>
+                        <div class="step-arrow">→</div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <span>Start timer & focus for 25 min</span>
+                        </div>
+                        <div class="step-arrow">→</div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <span>Take a 5 min break</span>
+                        </div>
+                        <div class="step-arrow">→</div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <span>Repeat 4x → Long break (15 min)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fun-fact">
+                    <span class="fun-fact-icon">📖</span>
+                    <p><strong>Did you know?</strong> The Pomodoro Technique is used by millions of students, developers, and professionals worldwide to boost productivity and maintain work-life balance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task Section -->
+        <section class="task-glass">
+            <div class="section-header">
+                <span class="section-title">📋 Current Task</span>
+                <button id="toggleTasks" class="toggle-btn" aria-label="Toggle tasks">▼</button>
+            </div>
+            <div id="taskContent" class="section-content">
+                <div class="current-task-display">
+                    <span class="task-label">Working on:</span>
+                    <span id="currentTask" class="task-name">No task selected</span>
+                </div>
+                <div class="add-task-form">
+                    <input type="text" id="newTaskInput" placeholder="What are you focusing on?">
+                    <button id="addTaskBtn" class="small-btn">Add</button>
+                </div>
+                <div class="quick-tasks">
+                    <span class="quick-label">Quick tasks:</span>
+                    <div class="task-chips">
+                        <button class="chip" data-task="Code project">💻 Code project</button>
+                        <button class="chip" data-task="Study notes">📚 Study notes</button>
+                        <button class="chip" data-task="Write article">✍️ Write article</button>
+                        <button class="chip" data-task="Design work">🎨 Design work</button>
+                    </div>
+                </div>
+                <ul id="taskList" class="task-list"></ul>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section class="settings-glass">
+            <div class="section-header">
+                <span class="section-title">⚙️ Timer Settings</span>
+                <button id="toggleSettings" class="toggle-btn" aria-label="Toggle settings">▼</button>
+            </div>
+            <div id="settingsContent" class="section-content">
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <label>🍅 Focus</label>
+                        <input type="number" id="workMinutes" min="1" max="99" value="25">
+                        <span class="unit">min</span>
+                    </div>
+                    <div class="setting-card">
+                        <label>☕ Break</label>
+                        <input type="number" id="breakMinutes" min="1" max="30" value="5">
+                        <span class="unit">min</span>
+                    </div>
+                    <div class="setting-card">
+                        <label>🎯 Long Break</label>
+                        <input type="number" id="longBreakMinutes" min="1" max="60" value="15">
+                        <span class="unit">min</span>
+                    </div>
+                    <div class="setting-card">
+                        <label>🔄 Cycles</label>
+                        <input type="number" id="cyclesToLongBreak" min="1" max="10" value="4">
+                        <span class="unit">to long</span>
+                    </div>
+                </div>
+                <div class="settings-note">
+                    💡 Changes apply when timer resets or next phase
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-note">
+            <p>Auto-cycles until you pause — just start and focus</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
