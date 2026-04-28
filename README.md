@@ -22,4 +22,4 @@
 - Creating seamless user experiences
 - Deploying static web apps
 
-[🔗 Live Demo](https://eagle-dev-hub.github.io/automatic-pomodoro-timer) | [📂 Source Code](https://github.com/your-username/auto-pomodoro)
+[🔗 Live Demo](https://eagle-dev-hub.github.io/automatic-pomodoro-timer) | [📂 Source Code](https://github.com/https://eagle-dev-hub.github.io/automatic-pomodoro-timer/auto-pomodoro)
