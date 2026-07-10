@@ -2,7 +2,7 @@
 
 [![Auto Pomodoro Demo](https://img.shields.io/badge/Live_Demo-View_Here-green)](https:/
 /your-username.github.io/auto-pomodoro)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-View_Code-blue)](https://github.com/your-username/auto-pomodoro)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-View_Code-blue)](https://github.com/eagle-dev-hub/auto-pomodoro)
 
 **An intelligent Pomodoro timer that automatically cycles between work and breaks.**
 
