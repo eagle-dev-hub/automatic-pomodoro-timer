@@ -1,7 +1,7 @@
 ## 🚀 Featured Project: Auto Pomodoro Timer
 
 [![Auto Pomodoro Demo](https://img.shields.io/badge/Live_Demo-View_Here-green)](https:/
-/eagle-dev-hub.github.io/auto-pomodoro)
+/eagle-dev-hub.github.io/auto-pomodoro-timer)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-View_Code-blue)](https://github.com/eagle-dev-hub/auto-pomodoro)
 
 **An intelligent Pomodoro timer that automatically cycles between work and breaks.**
